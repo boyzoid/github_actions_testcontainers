@@ -1,10 +1,11 @@
 {
-  "name": "knex_demo",
+  "name": "github_actions_testcontainers",
   "version": "1.0.0",
   "description": "",
   "main": "test/knex-demo.test.js",
   "scripts": {
-    "test": "node --test --watch ./test"
+    "test": "node --test",
+    "watch": "node --test --watch ./test"
   },
   "keywords": [],
   "author": "",
