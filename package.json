@@ -4,8 +4,7 @@
   "description": "",
   "main": "test/knex-demo.test.js",
   "scripts": {
-    "test": "node --test",
-    "watch": "node --test --watch ./test"
+    "test": "node --test"
   },
   "keywords": [],
   "author": "",
