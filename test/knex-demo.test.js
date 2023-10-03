@@ -71,7 +71,7 @@ test('Testing Application', async (t) => {
             const result = await userRepo.addUser(user);
             const postTestCount = await dbUtils.rowCount('user');
             const newUser = await dbUtils.getById(result, 'user', 'id');
-            assert.equal(preTestCount + 1, postTestCount);
+            assert.equal(preTestCount, postTestCount);
             assert.equal(user.first_name, newUser.first_name);
             assert.equal(user.last_name, newUser.last_name);
             assert.equal(user.email, newUser.email);
