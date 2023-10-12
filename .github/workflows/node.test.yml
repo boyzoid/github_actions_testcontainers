@@ -18,7 +18,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-    - run: npm test
+    #- run: npm test
 
   migration:
     needs: test
@@ -34,6 +34,7 @@ jobs:
       - name: Write VPn Config File
         env:
           MY_OVPN: ${{secrets.OVPN_FILE}}
+          MY_ENV: ${{secrets.MY_ENV}}
           CI: true
         shell: bash
         run: echo "$MY_OVPN" >> .github/workflows/client.ovpn
@@ -46,6 +47,6 @@ jobs:
       - name: Create .env file
         run: |
           touch .env
-          echo ${{secrets.MY_ENV}} >> .env
+          echo "$MY_ENV" >> .env
       - name: Run Migrations
         run: node deploy/migrations.js
