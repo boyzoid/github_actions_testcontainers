@@ -47,9 +47,7 @@ jobs:
         env:
           MY_EVN: ${{secrets.MY_ENV}}
           CI: true
-        run: |
-          touch .env
-          echo "$MY_ENV" >> .env
+        run: echo "$MY_ENV" >> .env
       - name: Read .env
         id: read_file
         uses: andstor/file-reader-action@v1
