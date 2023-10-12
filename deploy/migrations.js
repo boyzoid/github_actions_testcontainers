@@ -16,6 +16,7 @@ async function run(){
     await dbUtils.runLatestMigration()
 
     console.log('Migrations complete')
+
 }
 
 run()
