@@ -49,7 +49,7 @@ jobs:
           CI: true
         run: |
           touch .env
-          echo $MY_ENV >> .env
+          echo "$MY_ENV" >> .env
       - name: Read .env
         id: read_file
         uses: andstor/file-reader-action@v1
