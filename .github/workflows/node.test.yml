@@ -54,7 +54,7 @@ jobs:
         id: read_file
         uses: andstor/file-reader-action@v1
         with:
-          path: "package.json"
+          path: ".env"
       - name: Echo .env
         run: echo "${ steps.read_file.outputs.contents }"
       - name: Run Migrations
