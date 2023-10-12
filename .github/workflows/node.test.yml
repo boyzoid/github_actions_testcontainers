@@ -45,9 +45,11 @@ jobs:
       #    password: ${{ secrets.OVPN_PASSWORD }}
       - name: Create .env file
         env:
-          MY_EVN: ${{secrets.MY_ENV}}
+          DB_USER: ${{secrets.DB_USER}}
           CI: true
-        run: echo "$MY_ENV" >> .env
+        run: |
+          touch .env
+          echo DB_USER=${DB_USER} >> .env
       - name: Read .env
         id: read_file
         uses: andstor/file-reader-action@v1
@@ -55,5 +57,5 @@ jobs:
           path: ".env"
       - name: Echo .env
         run: echo "${{ steps.read_file.outputs.contents }}"
-      - name: Run Migrations
-        run: node deploy/migrations.js
+      #- name: Run Migrations
+      #  run: node deploy/migrations.js
