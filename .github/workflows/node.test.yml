@@ -50,5 +50,12 @@ jobs:
         run: |
           touch .env
           echo $MY_ENV >> .env
+      - name: Read .env
+        id: read_file
+        uses: andstor/file-reader-action@v1
+        with:
+          path: "package.json"
+      - name: Echo .env
+        run: echo "${ steps.read_file.outputs.contents }"
       - name: Run Migrations
         run: node deploy/migrations.js
