@@ -11,7 +11,8 @@
   "license": "MIT",
   "dependencies": {
     "knex": "^2.5.1",
-    "mysql2": "^3.6.0"
+    "mysql2": "^3.6.0",
+    "dotenv": "^16.0.1"
   },
   "devDependencies": {
     "testcontainers": "^9.9.1"
