@@ -11,12 +11,12 @@ async function run(){
         process.env.DB_SCHEMA
     )
 
-    console.log(process.env.DB_USER, process.env.DB_PASSWORD, process.env.DB_HOST, process.env.DB_PORT, process.env.DB_SCHEMA)
-
     await dbUtils.runLatestMigration()
 
     console.log('Migrations complete')
 
 }
 
-run()
+await run()
+
+process.exit()
