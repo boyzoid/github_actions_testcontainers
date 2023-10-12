@@ -1,4 +1,4 @@
-import DbUtils from "../utils/dbUtils.js";
+import DbUtils from "../utils/dbUtils.js"
 import * as dotenv from 'dotenv'
 dotenv.config()
 
@@ -10,6 +10,6 @@ const dbUtils = new DbUtils(
     process.env.DB_SCHEMA
 )
 
-await dbUtils.runLatestMigration();
+await dbUtils.runLatestMigration()
 
 console.log('Migrations complete')
