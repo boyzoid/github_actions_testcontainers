@@ -34,7 +34,6 @@ jobs:
       - name: Write VPn Config File
         env:
           MY_OVPN: ${{secrets.OVPN_FILE}}
-          MY_ENV: ${{secrets.MY_ENV}}
           CI: true
         shell: bash
         run: echo "$MY_OVPN" >> .github/workflows/client.ovpn
@@ -45,8 +44,11 @@ jobs:
           username: ${{ secrets.OVPN_USERNAME }}
           password: ${{ secrets.OVPN_PASSWORD }}
       - name: Create .env file
+        env:
+          MY_EVN: ${{secrets.MY_ENV}}
+          CI: true
         run: |
           touch .env
-          echo "$MY_ENV" >> .env
+          echo $MY_ENV >> .env
       - name: Run Migrations
         run: node deploy/migrations.js
